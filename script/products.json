@@ -1,0 +1,51 @@
+[
+    {
+        "id": 1,
+        "brand": "CHANEL",
+        "image": "./images/blueDeChanel.jpg",
+        "title": "BLEU DE CHANEL Eau de Toilette",
+        "rating": 5,
+        "price": 102
+    },
+    {
+        "id": 2,
+        "brand": "Dior",
+        "image": "./images/sauvage.jpg",
+        "title": "Sauvage Eau de Toilette",
+        "rating": 5,
+        "price": 62
+    },
+    {
+        "id": 3,
+        "brand": "TOM FORD",
+        "image": "./images/tabaccoVanille.jpg",
+        "title": "Tobacco Vanille",
+        "rating": 4,
+        "price": 175
+    },
+    {
+        "id": 4,
+        "brand": "DOLCE & GABBANA",
+        "image": "./images/theOne.jpg",
+        "title": "The One For Men Eau De Parfum",
+        "rating": 4.5,
+        "price": 78
+    },
+    {
+        "id": 5,
+        "brand": "Versace",
+        "image": "./images/Eros.jpg",
+        "title": "Eros",
+        "rating": 5,
+        "price": 72
+    },
+    {
+        "id": 6,
+        "brand": "Paco Rabanne",
+        "image": "./images/oneMillionElixir.jpg",
+        "title": "1 Million Elixir",
+        "rating": 4,
+        "price": 87
+    }
+    
+]

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+        integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="./css/style.css">
+    <title>ParfumeShop</title>
+</head>
+
+<body>
+    <header>
+        <nav class="top_nav">
+            <h1>PARFUMESHOP</h1>
+            <div class="icon_menu">
+                <button><i class="fa-solid fa-user"></i></button>
+                <button onClick="openToBag()">
+                    <span class="bag_quantity"></span>
+                    <i class="fa-solid fa-bag-shopping"></i>
+                </button>
+            </div>
+        </nav>
+        <nav class="bottom_nav">
+            <button class="bars"><i class="fa-solid fa-bars"></i></button>
+            <ul class="menu_list">
+                <li><a href="" class="active">Product</a></li>
+                <li><a href="">Brand</a></li>
+                <li><a href="">New</a></li>
+            </ul>
+            <div class="icon_menu">
+                <button class="active"><i class="fa-solid fa-user"></i></button>
+                <button onClick="openToBag()">
+                    <span class="bag_quantity"></span>
+                    <i class="fa-solid fa-bag-shopping"></i>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+
+    <section class="filters">
+        <button class="active" onclick="filterProduct(this)">All</button>
+        <button onclick="filterProduct(this)">Chanel</button>
+        <button onclick="filterProduct(this)">Dior</button>
+        <button onclick="filterProduct(this)">Tom Ford</button>
+
+    </section>
+    <section class="products_list">
+        <!-- <div class="product_cart">
+            <img src="./images/blueDeChanel.jpg" alt="">
+            <div class="product_info">
+                <h3>CHANEL</h3>
+                <p>BLEU DE CHANEL Eau de Parfum</p>
+                <div class="rating">
+                    <i class="fa-solid fa-star checked"></i>
+                    <i class="fa-solid fa-star checked"></i>
+                    <i class="fa-solid fa-star checked"></i>
+                    <i class="fa-solid fa-star checked"></i>
+                    <i class="fa-solid fa-star"></i>
+                </div>
+                <span>$102</span>
+            </div>
+            <button>ADD TO CART</button>
+        </div>
+ -->
+
+    </section>
+
+
+    <div class="bag_modal">
+        <div class="bag">
+            <button onClick="openToBag()"><i class="fa-solid fa-xmark"></i></button>
+            <h3>Your Product</h3>
+            <ul class="bag_list">
+                <!-- <li>
+                    <img src="./images/Eros.jpg" alt="">
+                    <div class="bag_list_info">
+                        <h3>Versace</h3>
+                        <p>BLEU DE CHANEL Eau de Toilette</p>
+                        <span>$72</span>
+                    </div>
+                    <div class="quantity">
+                        <button onclick="decreaseItemToBag()"><i class="fa-solid fa-minus"></i></button>
+                        <span>1</span>
+                        <button onclick="increaseItemToBag()"><i class="fa-solid fa-plus"></i></button>
+                    </div>
+                    <button class="removeBtn" onclick="removeItemToBag()"><i class="fa-solid fa-trash-can"></i></button>
+                </li> -->
+            </ul>
+            <h3 class="subTotal">Subtotal: $0</h3>
+        </div>
+    </div>
+
+    <script src="./script/app.js"></script>
+</body>
+
+
+
+
+
+</html>

@@ -1,0 +1,384 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;600&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --black: #000;
+    --grey: #767676;
+    --darkGrey: #464646;
+    --red: #e74847;
+}
+
+
+body {
+    font-family: 'Poppins', sans-serif;
+}
+
+i {
+    pointer-events: none;
+}
+
+
+
+.top_nav {
+    height: 8vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* border: 1px solid */
+}
+
+.top_nav h1 {
+    font-size: 1.8rem;
+    letter-spacing: 3px;
+    font-style: italic;
+    margin-left: 2rem;
+    color: var(--darkGrey)
+}
+
+.icon_menu {
+    display: flex;
+    justify-content: space-around;
+    margin-right: 2rem;
+}
+
+.icon_menu button {
+    padding: 8px 14px;
+    font-size: 1.2rem;
+    color: var(--darkGrey);
+    margin-right: 8px;
+    background-color: inherit;
+    border: none;
+    cursor: pointer;
+    position: relative;
+}
+
+.bag_quantity{
+    position: absolute;
+    bottom:5px;
+    right:0;
+    background-color: var(--red);
+    color:#fff;
+    font-size: 14px;
+    width:18px;
+    height:18px;
+    text-align: center;
+    line-height: 18px;
+    border-radius: 50%;
+
+}
+.bag_quantity:empty{
+    display: none;
+}
+
+
+
+.bottom_nav {
+    display: flex;
+    align-items: center;
+    background-color: var(--black);
+    position: relative;
+}
+
+.menu_list {
+    /* border:1px solid; */
+    display: flex;
+    list-style: none;
+    margin-left: 40px;
+    background-color: var(--black);
+}
+
+.bars {
+    display: none;
+    padding: 8px 14px;
+    color: white;
+    font-size: 1.2rem;
+    background-color: inherit;
+    border: none;
+}
+
+
+.menu_list li a {
+    display: block;
+    padding: 12px 14px;
+    color: white;
+    text-decoration: none;
+    font-size: 1.2rem;
+    letter-spacing: 2px;
+    font-style: italic;
+
+}
+
+.menu_list li a.active {
+    font-weight: 900;
+    background-color: var(--red);
+
+}
+
+.bottom_nav .icon_menu {
+    display: none;
+}
+
+
+.bag_modal {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 0;
+    background-color: rgba(0, 0, 0, .6);
+    visibility: hidden;
+    transition: 200ms linear;
+}
+
+.bag {
+    width:0;
+    height: 100%;
+    background-color: #fff;
+    float: right;
+    transition: 200ms linear;
+
+}
+
+.bag_modal.active {
+    visibility: visible;
+    z-index: 1;
+}
+
+.bag_modal.active .bag {
+    width: 400px;
+}
+
+.bag button {
+    padding: 8px 14px;
+    font-size: 1.5rem;
+    color: var(--darkGrey);
+    background-color: inherit;
+    border: none;
+    cursor: pointer
+}
+
+.bag h3{
+    text-align: center;
+    margin:20px 0px
+}
+
+.bag_list{
+    list-style: none;
+    margin:10px;
+    max-height:600px;
+    overflow-y: auto;
+}
+
+.bag_list::-webkit-scrollbar {
+    width:0;
+  }
+
+.bag_list li{
+    margin-bottom:30px;
+    display: flex;
+    align-items: center;
+    padding: 5px;
+    border-bottom: 1px solid rgba(0, 0, 0, .2);
+}
+.bag_list li img{
+    width:120px
+}
+
+.bag_list_info{
+    font-style: italic;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    padding: 5px;
+    width:135px;
+
+}
+
+.bag_list_info h3{
+    text-align: left;
+
+
+}
+.bag_list_info p{
+    font-size: 14px;
+}
+.quantity{
+    display: flex;
+    align-items: center;
+    margin-left:5px;
+}
+.quantity span{
+    font-size: 1.2rem;
+    margin:0px 5px;
+}
+
+.quantity button{
+    font-size: 1rem;
+    padding:3px;
+    margin:0 5px;
+}
+
+.bag_list li .removeBtn{
+    font-size: 1.3rem;
+    color:var(--red);
+    margin:0px 5px;
+    padding:3px;
+
+}
+
+.products_list{
+    width:100%;
+    margin-top:20px;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    justify-content: space-evenly;
+    gap:2rem;
+}
+
+.filters{
+ 
+    margin:10px 0;
+    padding: 10px 20px;
+}
+
+.filters button{
+    padding: 8px 14px;
+    font-size: 1rem;
+    border:none;
+    background-color: inherit;
+    color:var(--darkGrey);
+    cursor: pointer;
+}
+
+.filters button.active{
+    text-decoration: underline;
+    font-size: 1.1rem;
+}
+
+
+.product_cart{
+    /* border:1px solid; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 8px;
+    box-shadow: 1px 1px 4px var(--grey);
+    cursor: pointer;
+}
+
+.product_cart .rating{
+    margin:10px 0px
+}
+
+.rating i.checked {
+    color: orange;
+  }
+
+.product_cart span{
+    font-weight: bold;
+    margin:10px 0;
+}
+
+.product_cart button{
+    width:100%;
+    padding: 10px 0px;
+    margin: 10px 0;
+    font-weight: bold;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    background-color: var(--black);
+    color:#fff;
+    cursor: pointer;
+    transition: .2s;
+}
+
+.product_cart button:hover{
+    background-color: var(--red);
+}
+
+
+
+@media (max-width:900px){
+    .products_list{
+        grid-template-columns: repeat(2,1fr);
+    }
+}
+
+@media (max-width:700px){
+    .products_list{
+        grid-template-columns: repeat(1,300px);
+    }
+}
+
+
+
+@media (max-width:500px) {
+    .top_nav {
+        justify-content: center;
+    }
+
+    .top_nav h1 {
+        margin: 0;
+    }
+
+    .top_nav .icon_menu {
+        display: none;
+    }
+
+    .bottom_nav {
+        justify-content: space-between;
+        height: 8vh;
+    }
+
+    .menu_list {
+        flex-direction: column;
+        position: absolute;
+        top: 8vh;
+        left: 0;
+        width: 100%;
+        margin-left: 0;
+        margin-top: -200%;
+        text-align: center;
+        opacity: 0;
+        transition: opacity .1s;
+
+    }
+
+    .menu_list.active {
+        margin-top: 0;
+        opacity: 1
+    }
+
+
+    .bars {
+        display: block;
+        text-align: left;
+        cursor: pointer;
+        margin-left: 32px;
+        color:var(--darkGrey)
+    }
+    .bars.active{
+        color:#fff;
+    }
+
+    .bottom_nav .icon_menu {
+        display: block;
+    }
+
+    .bottom_nav .icon_menu button:focus {
+        color: #fff;
+    }
+
+
+    .bag_modal.active .bag {
+        width: 100%;
+    }
+}
