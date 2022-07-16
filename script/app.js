@@ -89,7 +89,7 @@ const listedBagItems = () => {
     localStorage.setItem('bagList', JSON.stringify(bagList));
     let bagListEl = document.querySelector('.bag_list');
     let subTotal = document.querySelector('.subTotal');
-    let bagQuantity = document.querySelector('.bag_quantity');
+    let bagQuantity = document.getElementsByClassName('bag_quantity');
     let bagListHtml = '';
     let totalPrice = 0;
     bagList.forEach(item => {
@@ -110,7 +110,8 @@ const listedBagItems = () => {
             <button class="removeBtn" onclick="removeItemToBag(${item.product.id})"><i class="fa-solid fa-trash-can"></i></button>
         </li>`
     })
-    bagQuantity.innerHTML = bagList.length > 0 ? bagList.length : null;
+    bagQuantity[0].innerHTML = bagList.length > 0 ? bagList.length : null;
+    bagQuantity[1].innerHTML = bagList.length > 0 ? bagList.length : null;
     subTotal.innerHTML = `<h3 class="subTotal">Subtotal: $${totalPrice.toFixed(2)}</h3>`
     bagListEl.innerHTML = bagListHtml
 
