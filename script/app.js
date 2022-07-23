@@ -1,5 +1,7 @@
 const bars = document.querySelector('.bars');
 const productsList = document.querySelector('.products_list');
+let productList = [], bagList = [];
+
 
 bars.addEventListener('click', () => {
     const menuList = document.querySelector('.menu_list');
@@ -11,9 +13,6 @@ const openToBag = () => {
     const bagModal = document.querySelector('.bag_modal');
     bagModal.classList.toggle("active")
 }
-
-
-let productList = [], bagList = [];
 
 async function getProduct() {
     let result = await fetch("./script/products.json");
@@ -28,8 +27,6 @@ async function getProduct() {
         })
         .catch(err => console.log(err))
 }
-
-window.addEventListener('DOMContentLoaded', getProduct())
 
 const createProductCartsHtml = () => {
     let productCartHtml = '';
@@ -76,10 +73,9 @@ const addToBag = (productId) => {
             bagList[findedBagIndex].quantity += 1;
         }
     }
-    // console.log(bagList)
+
     listedBagItems()
 }
-
 
 const listedBagItems = () => {
     localStorage.setItem('bagList', JSON.stringify(bagList));
@@ -116,13 +112,11 @@ const listedBagItems = () => {
 
 const decreaseItemToBag = (productId) => {
     let findedIndex = bagList.findIndex(item => item.product.id == productId);
-    console.log(findedIndex)
     if (bagList[findedIndex].quantity > 1) {
         bagList[findedIndex].quantity -= 1
 
     } else {
         removeItemToBag(productId)
-
     }
 
     listedBagItems()
@@ -130,7 +124,6 @@ const decreaseItemToBag = (productId) => {
 
 const increaseItemToBag = (productId) => {
     let findedIndex = bagList.findIndex(item => item.product.id == productId);
-    console.log(findedIndex)
     bagList[findedIndex].quantity += 1;
     listedBagItems()
 }
@@ -141,24 +134,10 @@ const removeItemToBag = (productId) => {
     listedBagItems()
 }
 
-
 if (localStorage.getItem('bagList')) {
     bagList = JSON.parse(localStorage.getItem('bagList'));
     listedBagItems()
 }
-
-// const PRODUCT_TYPES = {
-//     ALL: "ALL",
-//     CHANEL: "CHANEL",
-//     Dior: "Dior",
-//     TOMFORD: "TOM FORD",
-//     DOLCEGABBANA: "DOLCE & GABBANA",
-//     Versace: "Versace",
-//     PacoRabanne: "Paco Rabanne",
-// };
-
-
-
 
 const createFilterHtml = () => {
     const filterEl = document.querySelector('.filters');
@@ -169,6 +148,7 @@ const createFilterHtml = () => {
             filterTypes.push(product.brand);
     })
 
+
     filterTypes.forEach((type, index) => {
         filterHtml += `<button class=${index == 0 ? "active" : null} onclick="filterProduct(this)">${type}</button>`
 
@@ -176,23 +156,17 @@ const createFilterHtml = () => {
     })
 
     filterEl.innerHTML = filterHtml
-    // console.log(filterTypes)
 }
-
-
 
 const filterProduct = (filter) => {
     document.querySelector('.filters .active').classList.remove('active')
     filter.classList.add('active')
-
-
-
     let productType = filter.innerText;
     if (productType != "ALL") {
-        x = productList.filter(product => product.brand == productType);
+        filteredList = productList.filter(product => product.brand == productType);
         let productCartHtml = '';
 
-        x.forEach(product => {
+        filteredList.forEach(product => {
             productCartHtml += ` 
             <div class="product_cart">
                 <img src="${product.image}" alt="">
@@ -216,3 +190,5 @@ const filterProduct = (filter) => {
 
 
 }
+
+window.addEventListener('DOMContentLoaded', getProduct())
