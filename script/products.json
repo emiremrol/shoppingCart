@@ -46,6 +46,14 @@
         "title": "1 Million Elixir",
         "rating": 4,
         "price": 87
+    },
+    {
+        "id": 6,
+        "brand": "Versace",
+        "image": "./images/erosFemme.jpg",
+        "title": "Eros Pour Femme Eau de Parfum",
+        "rating": 4.5,
+        "price": 75
     }
     
 ]

@@ -1,4 +1,5 @@
 const bars = document.querySelector('.bars');
+const productsList = document.querySelector('.products_list');
 
 bars.addEventListener('click', () => {
     const menuList = document.querySelector('.menu_list');
@@ -19,19 +20,18 @@ async function getProduct() {
     let data = result.json();
     data.then(product => productList = product)
         .then(() => {
-
             createProductCartsHtml();
-
-        }).catch(err => console.log(err))
-
-
+            // filterProduct();
+        })
+        .then(() => {
+            createFilterHtml();
+        })
+        .catch(err => console.log(err))
 }
 
-getProduct()
-
+window.addEventListener('DOMContentLoaded', getProduct())
 
 const createProductCartsHtml = () => {
-    const productsList = document.querySelector('.products_list');
     let productCartHtml = '';
 
     productList.forEach(product => {
@@ -46,10 +46,9 @@ const createProductCartsHtml = () => {
                 </div>
                 <span>$${product.price}</span>
             </div>
-            <button onclick="addToBag(${product.id})">ADD TO CART</button>
+            <button  onclick="addToBag(${product.id})">ADD TO CART</button>
         </div>`
     })
-
     productsList.innerHTML = productCartHtml
 }
 
@@ -67,9 +66,7 @@ const starRateHtml = (rating) => {
 }
 
 const addToBag = (productId) => {
-
     let findedProduct = productList.find(product => product.id == productId);
-
     if (findedProduct) {
         let findedBagIndex = bagList.findIndex(item => item.product.id == productId)
         if (findedBagIndex == -1) {
@@ -77,7 +74,6 @@ const addToBag = (productId) => {
             bagList.push(addItem)
         } else {
             bagList[findedBagIndex].quantity += 1;
-
         }
     }
     // console.log(bagList)
@@ -110,6 +106,7 @@ const listedBagItems = () => {
             <button class="removeBtn" onclick="removeItemToBag(${item.product.id})"><i class="fa-solid fa-trash-can"></i></button>
         </li>`
     })
+
     bagQuantity[0].innerHTML = bagList.length > 0 ? bagList.length : null;
     bagQuantity[1].innerHTML = bagList.length > 0 ? bagList.length : null;
     subTotal.innerHTML = `<h3 class="subTotal">Subtotal: $${totalPrice.toFixed(2)}</h3>`
@@ -148,4 +145,74 @@ const removeItemToBag = (productId) => {
 if (localStorage.getItem('bagList')) {
     bagList = JSON.parse(localStorage.getItem('bagList'));
     listedBagItems()
+}
+
+// const PRODUCT_TYPES = {
+//     ALL: "ALL",
+//     CHANEL: "CHANEL",
+//     Dior: "Dior",
+//     TOMFORD: "TOM FORD",
+//     DOLCEGABBANA: "DOLCE & GABBANA",
+//     Versace: "Versace",
+//     PacoRabanne: "Paco Rabanne",
+// };
+
+
+
+
+const createFilterHtml = () => {
+    const filterEl = document.querySelector('.filters');
+    let filterHtml = '';
+    let filterTypes = ['ALL'];
+    productList.forEach(product => {
+        if (filterTypes.findIndex(filter => filter == product.brand) == -1)
+            filterTypes.push(product.brand);
+    })
+
+    filterTypes.forEach((type, index) => {
+        filterHtml += `<button class=${index == 0 ? "active" : null} onclick="filterProduct(this)">${type}</button>`
+
+
+    })
+
+    filterEl.innerHTML = filterHtml
+    // console.log(filterTypes)
+}
+
+
+
+const filterProduct = (filter) => {
+    document.querySelector('.filters .active').classList.remove('active')
+    filter.classList.add('active')
+
+
+
+    let productType = filter.innerText;
+    if (productType != "ALL") {
+        x = productList.filter(product => product.brand == productType);
+        let productCartHtml = '';
+
+        x.forEach(product => {
+            productCartHtml += ` 
+            <div class="product_cart">
+                <img src="${product.image}" alt="">
+                <div class="product_info">
+                    <h3>${product.brand}</h3>
+                    <p>${product.title}</p>
+                    <div class="rating">
+                        ${starRateHtml(product.rating)}
+                    </div>
+                    <span>$${product.price}</span>
+                </div>
+                <button  onclick="addToBag(${product.id})">ADD TO CART</button>
+            </div>`
+        })
+        productsList.innerHTML = productCartHtml
+
+
+    } else {
+        getProduct();
+    }
+
+
 }
