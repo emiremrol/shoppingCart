@@ -138,7 +138,7 @@
 
 .bagModal.active {
     visibility: visible;
-    z-index: 2;
+    z-index: 4;
 }
 
 
