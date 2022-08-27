@@ -43,7 +43,6 @@ const openBag = () => {
 
 // Toggle Bag
 
-
 // Shopping Cart
 
 window.addEventListener('DOMContentLoaded', getProduct)

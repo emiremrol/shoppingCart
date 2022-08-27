@@ -206,4 +206,10 @@
         width: 100%;
     }
 
+    .bag-list {
+        max-height: 300px;
+        overflow: auto;
+    }
+    
+
 }
