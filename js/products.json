@@ -1,0 +1,59 @@
+[
+    {
+        "id": 1,
+        "brand": "CHANEL",
+        "image": "./images/blueDeChanel.jpg",
+        "title": "BLEU DE CHANEL Eau de Toilette",
+        "rating": 5,
+        "price": 102
+    },
+    {
+        "id": 2,
+        "brand": "Dior",
+        "image": "./images/sauvage.jpg",
+        "title": "Sauvage Eau de Toilette",
+        "rating": 5,
+        "price": 62
+    },
+    {
+        "id": 3,
+        "brand": "TOM FORD",
+        "image": "./images/tabaccoVanille.jpg",
+        "title": "Tobacco Vanille",
+        "rating": 4,
+        "price": 175
+    },
+    {
+        "id": 4,
+        "brand": "DOLCE & GABBANA",
+        "image": "./images/theOne.jpg",
+        "title": "The One For Men Eau De Parfum",
+        "rating": 4.5,
+        "price": 78
+    },
+    {
+        "id": 5,
+        "brand": "TOM FORD",
+        "image": "./images/ombreLeather.jpg",
+        "title": "Ombré Leather Eau de Parfum",
+        "rating": 4,
+        "price": 150
+    },
+    {
+        "id": 6,
+        "brand": "Dior",
+        "image": "./images/hommeCologne.jpg",
+        "title": "Dior Homme Cologne",
+        "rating": 4.2,
+        "price": 94
+    },
+    {
+        "id": 7,
+        "brand": "Burberry",
+        "image": "./images/hero.jpg",
+        "title": "Hero Eau de Parfum",
+        "rating": 4.3,
+        "price": 104
+    }
+    
+]
