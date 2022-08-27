@@ -8,7 +8,7 @@ navIcon.addEventListener('click', () => {
 // Toggle burgermenu
 
 
-// Accordion Filtter
+// Accordion
 const accBtn = document.querySelectorAll('.accBtn');
 const accPanels = document.querySelectorAll('.accPanel');
 const accIcon = document.querySelectorAll('.accIcon');
@@ -30,7 +30,7 @@ accBtn.forEach((btn, index) => {
         }
     })
 })
-// Accordion Filtter
+// Accordion
 
 
 // Toggle Bag
@@ -44,15 +44,12 @@ const openBag = () => {
 // Toggle Bag
 
 
-
 // Shopping Cart
 
 window.addEventListener('DOMContentLoaded', getProduct)
 
 let productList = [];
 let bagList = [];
-
-
 
 async function getProduct() {
 
@@ -199,7 +196,7 @@ if (localStorage.getItem('bagList')) {
 // Shopping Cart
 
 
-// Product Filtration
+// Create Brand filter
 
 const createFilterHtml = () => {
     const filterEl = document.querySelector('.filterEl');
@@ -220,10 +217,15 @@ const createFilterHtml = () => {
 
 }
 
+// Create Brand filter
+
+
+//Filter
 
 const productContent = document.querySelector('.productContent');
 
 
+    //Brand filter
 const filterProduct = (filter) => {
     document.querySelector('.filterEl .active').classList.remove('active');
     filter.classList.add('active');
@@ -258,10 +260,12 @@ const filterProduct = (filter) => {
     }
 }
 
-// Product Filtration
+    //Brand filter
 
 
 
+
+    //Price filter
 
 function priceFilter(filter) {
     document.querySelector('.filterEl .active').classList.remove('active');
@@ -307,3 +311,7 @@ function priceFilter(filter) {
     productContent.innerHTML = productCardHtml;
     console.log(filteredList)
 }
+
+    //Price filter
+
+//Filter

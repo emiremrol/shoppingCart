@@ -27,7 +27,6 @@
     background-color: inherit;
     position: relative;
     transform: rotate(0deg);
-    /* transition: .1s ease-in-out; */
     cursor: pointer;
 }
 
